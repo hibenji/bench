@@ -151,6 +151,23 @@ ini_set('max_execution_time', 300);
       </p>
     </div>
   </section>
-  </body>
 
+  <section class="section">
+    <div class="container">
+      <i class="fa fa-italic">*more storage can be added at setup</i> <br>
+      <i class="fa fa-italic">**BYOG = Bring your own Games</i>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Benchmarks</strong> by <a href="https://benji.link">Benji</a>.<br>
+        If you have any problems or suggestions, please contact me on discord: Benji#1652
+      </p>
+    </div>
+  </footer>
+
+  </body>
 </html>
