@@ -26,6 +26,17 @@ ini_set('max_execution_time', 300);
 
     <script async src="https://arc.io/widget.min.js#a24jhCmw"></script>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-50TJ289NGW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-50TJ289NGW');
+    </script>
+
+
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable({
