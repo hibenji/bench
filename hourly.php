@@ -13,7 +13,7 @@ ini_set('max_execution_time', 300);
     <meta content="Benchmarks" property="og:title">
     <meta content="Benchmarks and comparison of cloud game streaming providers" property="og:description">
     <meta content="https://bench.benji.live" property="og:url">
-    <meta content="/contoller.png" property="og:image">
+    <meta content="assets/contoller.png" property="og:image">
     <meta content="#5a43b5" data-react-helmet="true" name="theme-color">
    
     <title>List of Game Streaming Providers (Hourly)</title>
@@ -21,13 +21,14 @@ ini_set('max_execution_time', 300);
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="bulma-prefers-dark.css" />
-    <link rel="stylesheet" type="text/css" href="custom.css" />
+    <link rel="stylesheet" type="text/css" href="assets/bulma-prefers-dark.css" />
+    <link rel="stylesheet" type="text/css" href="assets/custom.css" />
 
 
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable({
+              order: [[4, 'desc']],
               paging: false,
               info: false,
               searching: false
@@ -55,7 +56,7 @@ ini_set('max_execution_time', 300);
       die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "SELECT * FROM hourly ORDER BY fps DESC";
+  $sql = "SELECT * FROM hourly";
   $result = $conn->query($sql);
 
 
