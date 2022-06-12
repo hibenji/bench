@@ -16,7 +16,7 @@ ini_set('max_execution_time', 300);
     <meta content="/assets/contoller.png" property="og:image">
     <meta content="#5a43b5" data-react-helmet="true" name="theme-color">
    
-    <title>List of Game Streaming Providers (Hourly)</title>
+    <title>List of Game Streaming Providers</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
