@@ -1,0 +1,21 @@
+.hour::after {
+    content: "$/h";
+  }
+
+  .hour.special::after {
+    content: "$/m";
+  }
+
+  .month::after {
+    content: "$/m";
+  }
+
+  #myHours {
+    max-width: 200px;
+    margin-top: 5px
+  }
+
+  table {
+    border-top: 1.5px solid #e5e5e5;
+    background-color: #00000;
+  }
