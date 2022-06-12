@@ -13,7 +13,7 @@ ini_set('max_execution_time', 300);
     <meta content="Benchmarks" property="og:title">
     <meta content="Benchmarks and comparison of cloud game streaming providers" property="og:description">
     <meta content="https://bench.benji.live" property="og:url">
-    <meta content="assets/contoller.png" property="og:image">
+    <meta content="/assets/contoller.png" property="og:image">
     <meta content="#5a43b5" data-react-helmet="true" name="theme-color">
    
     <title>List of Game Streaming Providers (Hourly)</title>
@@ -24,6 +24,7 @@ ini_set('max_execution_time', 300);
     <link rel="stylesheet" type="text/css" href="assets/bulma-prefers-dark.css" />
     <link rel="stylesheet" type="text/css" href="assets/custom.css" />
 
+    <script async src="https://arc.io/widget.min.js#a24jhCmw"></script>
 
     <script>
         $(document).ready(function () {
