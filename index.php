@@ -287,7 +287,8 @@ ini_set('max_execution_time', 300);
     <div class="content has-text-centered">
       <p>
         <strong>Benchmarks</strong> by <a href="https://benji.link">Benji</a>.<br>
-        If you have any problems or suggestions, please contact me on discord: Benji#1652
+        If you have any problems or suggestions, please contact me on discord: Benji#1652 <br>
+        Email: benjibordne@outlook.com
       </p>
     </div>
   </footer>
