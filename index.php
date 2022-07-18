@@ -21,23 +21,10 @@ ini_set('max_execution_time', 300);
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="assets/bulma-prefers-dark.css" />
+    <link rel="stylesheet" type="text/css" href="assets/dark-min.css" />
     <link rel="stylesheet" type="text/css" href="assets/custom.css" />
 
     <script async src="https://arc.io/widget.min.js#a24jhCmw"></script>
-
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-50TJ289NGW"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-50TJ289NGW');
-    </script>
-
-
 
     <script>
         $(document).ready(function () {
@@ -270,7 +257,6 @@ ini_set('max_execution_time', 300);
 
   </tbody>
 </table>
-
 
       </p>
     </div>
