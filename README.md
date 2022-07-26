@@ -1,3 +1,3 @@
 # bench.benji.link
 
-A place to check Performace and other specs of Cloud gaming providers.
+A Website to compare performace of different cloud gaming providers.
