@@ -13,10 +13,10 @@ ini_set('max_execution_time', 300);
     <meta content="Benchmarks" property="og:title">
     <meta content="Benchmarks and comparison of cloud game streaming providers" property="og:description">
     <meta content="https://bench.benji.live" property="og:url">
-    <meta content="/assets/contoller.png" property="og:image">
+    <meta content="/assets/controller.pnh" property="og:image">
     <meta content="#5a43b5" data-react-helmet="true" name="theme-color">
    
-    <title>List of Game Streaming Providers</title>
+    <title>Benchmarks of Game Streaming Providers</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -91,7 +91,7 @@ ini_set('max_execution_time', 300);
   <section class="section">
     <div class="container">
       <h1 class="title">
-        List of Game Streaming Providers
+        Benchmarks of Game Streaming Providers
       </h1>
       <br>
 
