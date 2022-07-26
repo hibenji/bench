@@ -156,7 +156,8 @@ ini_set('max_execution_time', 300);
   <section class="section">
     <div class="container">
       <i class="fa fa-italic">*more storage can be added at setup</i> <br>
-      <i class="fa fa-italic">**BYOG = Bring your own Games</i>
+      <i class="fa fa-italic">**BYOG = Bring your own Games</i> <br>
+      <i class="fa fa-italic">***GFN = Geforce Now</i>
     </div>
   </section>
 
