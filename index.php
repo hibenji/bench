@@ -78,34 +78,13 @@ ini_set('max_execution_time', 300);
 
   <?php
 
-  $servername = "localhost";
-  $username = "bench";
-  $password = "bB6n8vQWzSx656bQ";
-  $dbname = "bench";
-
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
-
-  // Check connection
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
+  include('conn.php');
 
   $sql = "SELECT * FROM hourly";
   $result = $conn->query($sql);
 
-
-  // second connection to same database
-  $conn2 = new mysqli($servername, $username, $password, $dbname);
-
-  // Check connection
-  if ($conn2->connect_error) {
-      die("Connection failed: " . $conn2->connect_error);
-  }
-
   $sql2 = "SELECT * FROM monthly";
   $result2 = $conn2->query($sql2);
-  
 
   ?>
 

@@ -43,18 +43,7 @@ ini_set('max_execution_time', 300);
 
   <?php
 
-  $servername = "localhost";
-  $username = "bench";
-  $password = "bB6n8vQWzSx656bQ";
-  $dbname = "bench";
-
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
-
-  // Check connection
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
+  include('conn.php');
 
   $sql = "SELECT * FROM monthly";
   $result = $conn->query($sql);
