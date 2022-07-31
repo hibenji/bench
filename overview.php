@@ -53,10 +53,11 @@ ini_set('max_execution_time', 300);
       <h1 class="title is-2">
         Benchmarks of Game Streaming Providers
       </h1>
-      <br>
-			
 
-			<?php
+			<small>This Feature is still being developved, use at your own risk.</small>
+			<br>
+			<br>
+		<?php
       if ($result->num_rows > 0) {
           // output data of each row
           while($row = $result->fetch_assoc()) {
