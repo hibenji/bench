@@ -54,91 +54,117 @@ ini_set('max_execution_time', 300);
         Benchmarks of Game Streaming Providers
       </h1>
 
-			<small>This Feature is still being developved, use at your own risk.</small>
+			<i><small>This Feature is still being developved, expect issues.</small></i>
 			<br>
 			<br>
 		<?php
       if ($result->num_rows > 0) {
-          // output data of each row
-          while($row = $result->fetch_assoc()) {
+		while($row = $result->fetch_assoc()) {
 
-						?>
-						<h2 class='title is-3'><?php echo $row["name"]; ?></h2>
+		?>
+		<h2 class='title is-3'><?php echo $row["name"]; ?></h2>
 
-						<div class="columns">
-							<div class="column">
-								Price:
-								<br>
-								<p class="content is-large white"><?php echo $row["price"]; ?>$</p>
-							</div>
-							<div class="column">
-								FPS:
-								<br>
-								<?php
+		<h5 class='title is-6'>Personal opinion and extra info:</h5>
+		<p class="subtitle is-5"><?php echo $row["description"]; ?></p>
 
-								if($row["fps"] < 30) {
-									echo "<span class='tag is-danger is-large'>";
-								} else if($row["fps"] < 60) {
-									echo "<span class='tag is-warning is-large'>";
-								} else {
-									echo "<span class='tag is-success is-large'>";
-								}
-								?>
+		<div class="columns">
+			<div class="column">
+				Price:
+				<br>
+				<p class="content is-large"><strong><?php echo $row["price"]; ?>$</strong></p>
+			</div>
+			<div class="column">
+				FPS:
+				<br>
+				<?php
 
-								<p class="content is-large"><?php echo $row["fps"]; ?></p>
-								</span>
-							</div>
-							<div class="column">
-								RTX-FPS:
-								<br>
-								<?php
+				if($row["fps"] < 30) {
+					echo "<span class='tag is-danger is-large'>";
+				} else if($row["fps"] < 60) {
+					echo "<span class='tag is-warning is-large'>";
+				} else {
+					echo "<span class='tag is-success is-large'>";
+				}
+				?>
 
-								if($row["rtx-fps"] < 30) {
-									echo "<span class='tag is-danger is-large'>";
-								} else if($row["rtx-fps"] < 60) {
-									echo "<span class='tag is-warning is-large'>";
-								} else {
-									echo "<span class='tag is-success is-large'>";
-								}
-								?>
+				<p class="content is-large"><?php echo $row["fps"]; ?></p>
+				</span>
+			</div>
+			<div class="column">
+				RTX-FPS:
+				<br>
+				<?php
 
-								<p class="content is-large"><?php echo $row["rtx-fps"]; ?></p>
-								</span>
-							</div>
-							<div class="column">
-							Locations:
-							<br>
-							<p class="content is-large"><?php echo $row["locations"]; ?></p>
-							</div>
-						</div>
+				if($row["rtx-fps"] < 30) {
+					echo "<span class='tag is-danger is-large'>";
+				} else if($row["rtx-fps"] < 60) {
+					echo "<span class='tag is-warning is-large'>";
+				} else {
+					echo "<span class='tag is-success is-large'>";
+				}
+				?>
 
-						<br>
-						<!-- second row -->
-						<div class="columns">
-							<div class="column">
-								vCores:
-								<br>
-								<p class="content is-large"><?php echo $row["vcores"]; ?></p>
-							</div>
-							<div class="column">
-								RAM:
-								<br>
-								<p class="content is-large"><?php echo $row["ram"]; ?></p>
-							</div>
-							<div class="column">
-								<span><abbr title="How much?/Is it Persitant?">Storage:</span>
-								<br>
-								<p class="content is-large"><?php echo $row["storage"]; ?></p>
-							</div>
-							<div class="column">
-							GPU:
-							<br>
-							<p class="content is-large"><?php echo $row["gpu"]; ?></p>
-						</div>
+				<p class="content is-large"><?php echo $row["rtx-fps"]; ?></p>
+				</span>
+			</div>
+			<div class="column">
+			Locations:
+			<br>
+			<p class="content is-large"><?php echo $row["locations"]; ?></p>
+			</div>
+		</div>
 
-						<?php
 
-          }
+		<br>
+		<!-- second row -->
+		<div class="columns">
+			<div class="column">
+				vCores:
+				<br>
+				<p class="content is-large"><strong><?php echo $row["vcores"]; ?></strong></p>
+			</div>
+			<div class="column">
+				RAM:
+				<br>
+				<p class="content is-large"><strong><?php echo $row["ram"]; ?></strong></p>
+			</div>
+			<div class="column">
+				<span><abbr title="How much?/Is it Persitant?">Storage:</span>
+				<br>
+				<p class="content is-large"><strong><?php echo $row["storage"]; ?></strong></p>
+			</div>
+			<div class="column">
+				GPU:
+				<br>
+				<p class="content is-large"><strong><?php echo $row["gpu"]; ?></strong></p>
+			</div>
+		</div>
+
+		<br>
+		<!-- images -->
+		<h3 class="title is-3">
+			Screenshot of the Benchmark
+		</h3>
+		<div class="columns">
+			<div class="column">
+				NON RTX:
+				<br>
+				<figure class="image is-16by9">
+					<img src="<?php echo $row["ss-non"]; ?>" alt="NON RTX">
+				</figure>
+			</div>
+			<div class="column">
+				RTX:
+				<br>
+				<figure class="image is-16by9">
+					<img src="<?php echo $row["ss-rtx"]; ?>" alt="RTX">
+				</figure>
+			</div>
+		</div>
+
+		<?php
+
+		}
       } else {
           echo "0 results";
       }
