@@ -120,7 +120,7 @@ ini_set('max_execution_time', 300);
   <table id="myTable" class="table">
   <thead>
     <tr>
-      <th onclick="sortTable(0)">Names</th>
+      <th onclick="sortTable(0)">Name</th>
       <th onclick="sortTable(1)">Locations</th>
       <th onclick="sortTable(2)">Price</th>
       <th onclick="sortTable(3)">Payment</th>
@@ -131,8 +131,7 @@ ini_set('max_execution_time', 300);
       <th onclick="sortTable(8)">RAM</th>
       <th onclick="sortTable(9)"><abbr title="vCores">CPU</th>
       <th onclick="sortTable(10)">GPU</th>
-      <th><abbr title="Non-RTX Benchmark Screenshot">Screenshot</th>
-      <th><abbr title="RTX Benchmark Screenshot">Screenshot RTX</th>
+      <th>Link</th>
       <th><abbr title="Just some more random info">Extra Info</th>
     </tr>
   </thead>
@@ -162,7 +161,7 @@ ini_set('max_execution_time', 300);
 
               echo "
               <tr>
-              <td><a href='" . $row["link"]. "' target='_blank'>" . $row["name"]. "</td>
+              <td><a href='overview.php?type=hourly&id=" . $row["id"]. "'>" . $row["name"]. "</td>
               <td>" . $row["locations"]. "</td>
               <td><span class='hour'><p style='display:inline' name='" . $row["price"]. "' class='hours'>" . $row["price"]. "</p></span></td>
               <td>Hourly</td>
@@ -173,8 +172,7 @@ ini_set('max_execution_time', 300);
               <td>" . $row["ram"]. "</td>
               <td>" . $row["vcores"]. "</td>
               <td>" . $row["gpu"]. "</td>
-              <td><a href='" . $row["ss-non"]. "' target='_blank'>Screenshot</a></td>
-              <td><a href='" . $row["ss-rtx"]. "' target='_blank'>Screenshot</a></td>
+              <td><a href='" . $row["link"]. "' target='_blank'>Link</a></td>
               <td>" . $row["info"]. "</td>
               </tr>
               "; 
@@ -210,7 +208,7 @@ ini_set('max_execution_time', 300);
 
               echo "
               <tr>
-              <td><a href='" . $row["link"]. "' target='_blank'>" . $row["name"]. "</td>
+              <td><a href='overview.php?type=monthly&id=" . $row["id"]. "'>" . $row["name"]. "</td>
               <td>" . $row["locations"]. "</td>
               <td><span class='month'>" . $row["price"]. "</span></td>
               <td>Monthly</td>
@@ -221,8 +219,7 @@ ini_set('max_execution_time', 300);
               <td>" . $row["ram"]. "</td>
               <td>" . $row["vcores"]. "</td>
               <td>" . $row["gpu"]. "</td>
-              <td><a href='" . $row["ss-non"]. "' target='_blank'>Screenshot</a></td>
-              <td><a href='" . $row["ss-rtx"]. "' target='_blank'>Screenshot</a></td>
+              <td><a href='" . $row["link"]. "' target='_blank'>Link</a></td>
               <td>" . $row["info"]. "</td>
               </tr>
               

@@ -73,7 +73,7 @@ ini_set('max_execution_time', 300);
 <table id="myTable" class="table">
   <thead>
     <tr>
-      <th onclick="sortTable(0)">Names</th>
+      <th onclick="sortTable(0)">Name</th>
       <th onclick="sortTable(1)">Locations</th>
       <th onclick="sortTable(2)">Price</th>
       <th onclick="sortTable(3)"><abbr title="How much?/Is it Persitant?">Storage</th>
@@ -83,8 +83,7 @@ ini_set('max_execution_time', 300);
       <th onclick="sortTable(7)">RAM</th>
       <th onclick="sortTable(8)"><abbr title="vCores">CPU</th>
       <th onclick="sortTable(9)">GPU</th>
-      <th><abbr title="Non-RTX Benchmark Screenshot">Screenshot</th>
-      <th><abbr title="RTX Benchmark Screenshot">Screenshot RTX</th>
+      <th>Link</th>
       <th><abbr title="Just some more random info">Extra Info</th>
     </tr>
   </thead>
@@ -114,7 +113,7 @@ ini_set('max_execution_time', 300);
 
               echo "
               <tr>
-              <td><a href='" . $row["link"]. "' target='_blank'>" . $row["name"]. "</td>
+              <td><a href='overview.php?type=monthly&id=" . $row["id"]. "'>" . $row["name"]. "</td>
               <td>" . $row["locations"]. "</td>
               <td>" . $row["price"]. "$/m</td>
               <td>" . $row["storage"]. "</td>
@@ -124,8 +123,7 @@ ini_set('max_execution_time', 300);
               <td>" . $row["ram"]. "</td>
               <td>" . $row["vcores"]. "</td>
               <td>" . $row["gpu"]. "</td>
-              <td><a href='" . $row["ss-non"]. "' target='_blank'>Screenshot</a></td>
-              <td><a href='" . $row["ss-rtx"]. "' target='_blank'>Screenshot</a></td>
+              <td><a href='" . $row["link"]. "' target='_blank'>Link</a></td>
               <td>" . $row["info"]. "</td>
               </tr>
               "; 

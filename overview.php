@@ -21,7 +21,7 @@ ini_set('max_execution_time', 300);
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/dark-min.css" />
-    <link rel="stylesheet" type="text/css" href="assets/custom.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="assets/custom.css" /> -->
 
     <script async src="https://arc.io/widget.min.js#a24jhCmw"></script>
 
@@ -54,19 +54,23 @@ ini_set('max_execution_time', 300);
         Benchmarks of Game Streaming Providers
       </h1>
 
-			<i><small>This Feature is still being developved, expect issues.</small></i>
+			<i><small>
+				This feature is still being developved, expect issues.<br>
+  				Please contact me on discord if you find bugs.
+			</small></i>
 			<br>
 			<br>
 		<?php
       if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
-
 		?>
-		<h2 class='title is-3'><?php echo $row["name"]; ?></h2>
+		Link:
+		<u><a href="<?php echo $row["link"] ?>"><h2 class='title is-3'><?php echo $row["name"]; ?></h2></a></u>
+		<br>
 
 		<h5 class='title is-6'>Personal opinion and extra info:</h5>
 		<p class="subtitle is-5"><?php echo $row["description"]; ?></p>
-
+		<hr>
 		<div class="columns">
 			<div class="column">
 				Price:
@@ -140,9 +144,10 @@ ini_set('max_execution_time', 300);
 			</div>
 		</div>
 
-		<br>
+		<hr>
+
 		<!-- images -->
-		<h3 class="title is-3">
+		<h3 class="title is-4">
 			Screenshot of the Benchmark
 		</h3>
 		<div class="columns">
@@ -166,7 +171,7 @@ ini_set('max_execution_time', 300);
 
 		}
       } else {
-          echo "0 results";
+          echo "Failed!";
       }
       ?>
   

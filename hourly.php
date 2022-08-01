@@ -22,7 +22,7 @@ ini_set('max_execution_time', 300);
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/bulma-prefers-dark.css" />
-    <!-- <link rel="stylesheet" type="text/css" href="assets/custom.css" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/custom.css" />
 
     <script async src="https://arc.io/widget.min.js#a24jhCmw"></script>
 
@@ -72,7 +72,7 @@ ini_set('max_execution_time', 300);
       <table id="myTable" class="table">
   <thead>
     <tr>
-      <th onclick="sortTable(0)">Names</th>
+      <th onclick="sortTable(0)">Name</th>
       <th onclick="sortTable(1)">Locations</th>
       <th onclick="sortTable(2)">Price</th>
       <th onclick="sortTable(3)"><abbr title="How much?/Is it Persitant?">Storage</th>
@@ -113,7 +113,7 @@ ini_set('max_execution_time', 300);
 
               echo "
               <tr>
-              <td><a href='" . $row["link"]. "' target='_blank'>" . $row["name"]. "</td>
+              <td><a href='overview.php?type=hourly&id=" . $row["id"]. "'>" . $row["name"]. "</td>
               <td>" . $row["locations"]. "</td>
               <td>" . $row["price"]. "$/hr</td>
               <td>" . $row["storage"]. "</td>
