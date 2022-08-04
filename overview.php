@@ -50,14 +50,18 @@ ini_set('max_execution_time', 300);
 
   <section class="section">
     <div class="container">
-      <h1 class="title is-2">
+      <h1 class="title">
         Benchmarks of Game Streaming Providers
       </h1>
-
+	  <p class="subtitle is-6">
 			<i><small>
-				This feature is still being developved, expect issues.<br>
-  				Please contact me on discord if you find bugs.
+			This feature is still being developved, expect issues.<br>
+			Please contact me on discord if you find bugs.
 			</small></i>
+		</p>
+	  <a href="/" class="button is-primary">Back</a>
+	  <br>
+
 			<br>
 			<br>
 		<?php
