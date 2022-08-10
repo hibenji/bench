@@ -11,7 +11,7 @@ ini_set('max_execution_time', 300);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="Benchmarks" property="og:title">
     <meta content="Benchmarks and comparison of cloud game streaming providers" property="og:description">
-    <meta content="https://bench.benji.live" property="og:url">
+    <meta content="https://bench.benji.link" property="og:url">
     <meta content="/assets/controller.png" property="og:image">
     <meta content="#5a43b5" data-react-helmet="true" name="theme-color">
    
