@@ -121,7 +121,7 @@ ini_set('max_execution_time', 300);
 
         <br>
         <br>
-        All Benchmarks were in run <b><u>Shadow of the Tomb Raider</u></b> without <b>DLSS</b> and at <b>1080p</b> at <b>Max Settings.</b><br>
+        All Benchmarks were in run <b><u>Shadow of the Tomb Raider</u></b> without <b>DLSS</b> and at <b>1080p</b> at <b>Ultra Settings.</b><br>
         <i><small>Click the headers to sort the table.</small></i>
         <br>
       </p>

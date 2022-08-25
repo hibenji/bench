@@ -77,7 +77,7 @@ ini_set('max_execution_time', 300);
       <p class="subtitle">
         Click the headers to sort the table.
         <br>
-        All Benchmarks were in run Shadow of the Tomb Raider without DLSS and at 1080p at Max Settings.
+        All Benchmarks were in run Shadow of the Tomb Raider without DLSS and at 1080p at Ultra Settings.
       </p>
 
 <table id="myTable" class="table">
