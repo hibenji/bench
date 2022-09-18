@@ -3,6 +3,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 ini_set('max_execution_time', 300);
 
+// show all errors
+error_reporting(E_ALL);
+
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +19,7 @@ ini_set('max_execution_time', 300);
     <meta content="/assets/controller.png" property="og:image">
     <meta content="#5a43b5" data-react-helmet="true" name="theme-color">
    
-    <title>Benchmarks of Game Streaming Providers</title>
+    <title>Benchmarks of Game Streaming Providers - Feedback</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -42,9 +45,81 @@ ini_set('max_execution_time', 300);
   <?php
 
   include('conn.php');
+  
+  if(isset($_POST['submit'])) {
 
-  $sql = "SELECT * FROM hourly";
-  $result = $conn->query($sql);
+
+    $discord = $_POST['discord'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $question = $_POST['question'];
+
+    // check if fields are empty
+    if(empty($discord)) {
+      $discord = "Not Specified";
+    }
+    if(empty($email)) {
+      $email = "Not Specified";
+    }
+
+
+    echo "Thank you, your Feedback was submitted!";
+
+    // discord webhook
+
+    $json_data = json_encode([
+      "content" => "<@499865877945253888>",
+          "embeds" => [
+              [
+                 "title" => "New Feedback!", 
+                 "description" => "", 
+                 "color" => 8585048, 
+                 "fields" => [
+                    [
+                      "name" => "Message", 
+                      "value" => $message, 
+                    ], 
+                    [
+                       "name" => "Discord", 
+                       "value" => $discord, 
+                       "inline" => true 
+                    ], 
+                    [
+                      "name" => "Email", 
+                      "value" => $email, 
+                      "inline" => true 
+                    ],
+                    [
+                      "name" => "Contact?", 
+                      "value" => $question, 
+                      "inline" => true
+                    ] 
+                 ] 
+              ] 
+           ]
+  
+  ]);
+  
+  $ch = curl_init( $webhook_url );
+  
+  curl_setopt( $ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+  
+  curl_setopt( $ch, CURLOPT_POST, 1);
+  
+  curl_setopt( $ch, CURLOPT_POSTFIELDS, $json_data);
+  
+  curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+  
+  curl_setopt( $ch, CURLOPT_HEADER, 0);
+  
+  curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+  
+  $response = curl_exec( $ch );
+  
+  curl_close( $ch );
+  
+
+  }
 
   ?>
 
@@ -65,144 +140,50 @@ ini_set('max_execution_time', 300);
         <br>
         <br>
 
+        <form action="feedback.php" method="post">
+          <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input" name="discord" id="discord"  type="text" placeholder="Benji#1652">
+            </div>
+          </div>
 
-        Report some Feedback or a new Provider i should test.<br>
-        <i><small>This will show the montly price in the table</small></i><br>
-        <input class="input" type="number" id="myHours" onkeyup="myHours()" placeholder="Hours" title="Hours per month">
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <input class="input" name="email" id="email" type="email" placeholder="example@example.com">
+            </div>
+          </div>
 
-        <br>
-        <br>
-        All Benchmarks were in run <b><u>Shadow of the Tomb Raider</u></b> without <b>DLSS</b> and at <b>1080p</b> at <b>Ultra Settings.</b><br>
-        <i><small>Click the headers to sort the table.</small></i>
-        <br>
+          <div class="field">
+            <label class="label">Message *</label>
+            <div class="control">
+              <textarea class="textarea" name="message" id="message" placeholder="Your Message" required></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="label">Are you willing to be contacted by me?</label>
+            <div class="control">
+              <label class="radio">
+                <input type="radio" value="YES" name="question" checked>
+                Yes
+              </label>
+              <label class="radio">
+                <input type="radio" value="NO" name="question">
+                No
+              </label>
+            </div>
+          </div>
+
+          <div class="field is-grouped">
+            <div class="control">
+              <input name="submit" type='submit' value="Submit" class="button is-link"/>
+            </div>
+          </div>
+        </form>
       </p>
     
-
-  <table id="myTable" class="table">
-  <thead>
-    <tr>
-      <th onclick="sortTable(0)">Name</th>
-      <th onclick="sortTable(1)">Locations</th>
-      <th onclick="sortTable(2)">Price</th>
-      <th onclick="sortTable(3)">Payment</th>
-      <th onclick="sortTable(4)"><abbr title="How much?/Is it Persitant?">Storage</th>
-      <th onclick="sortTable(5)"><abbr title="Non-RTX FPS MAX settings 1080p">FPS</th>
-      <th onclick="sortTable(6)"><abbr title="RTX FPS MAX settings 1080p">RTX FPS</th>
-      <th onclick="sortTable(7)">Library</th>
-      <th onclick="sortTable(8)">RAM</th>
-      <th onclick="sortTable(9)"><abbr title="vCores">CPU</th>
-      <th onclick="sortTable(10)">GPU</th>
-      <th>Link</th>
-      <th><abbr title="Just some more random info">Extra Info</th>
-    </tr>
-  </thead>
-  <tbody>
-
-      <?php
-      if ($result->num_rows > 0) {
-          // output data of each row
-          while($row = $result->fetch_assoc()) {
-
-              if($row["fps"] < 30) {
-                $fps = "<span id='" . $row["fps"] . "' class='tag is-danger'>" . $row["fps"] . "</span>";
-              } else if($row["fps"] < 60) {
-                $fps = "<span id='" . $row["fps"] . "' class='tag is-warning'>" . $row["fps"] . "</span>";
-              } else {
-                $fps = "<span id='" . $row["fps"] . "' class='tag is-success'>" . $row["fps"] . "</span>";
-              }
-
-              if($row["rtx-fps"] < 30) {
-                $rtx_fps = "<span id='" . $row["rtx-fps"] . "' class='tag is-danger'>" . $row["rtx-fps"] . "</span>";
-              } else if($row["rtx-fps"] < 60) {
-                $rtx_fps = "<span id='" . $row["rtx-fps"] . "' class='tag is-warning'>" . $row["rtx-fps"] . "</span>";
-              } else {
-                $rtx_fps = "<span id='" . $row["rtx-fps"] . "' class='tag is-success'>" . $row["rtx-fps"] . "</span>";
-              }
-
-
-              echo "
-              <tr>
-              <td><a href='overview.php?type=hourly&id=" . $row["id"]. "'>" . $row["name"]. "</td>
-              <td>" . $row["locations"]. "</td>
-              <td><span class='hour'><p style='display:inline' name='" . $row["price"]. "' class='hours'>" . $row["price"]. "</p></span></td>
-              <td>Hourly</td>
-              <td>" . $row["storage"]. "</td>
-              <td>" . $fps. "</td>
-              <td>" . $rtx_fps. "</td>
-              <td>" . $row["library"]. "</td>
-              <td>" . $row["ram"]. "</td>
-              <td>" . $row["vcores"]. "</td>
-              <td>" . $row["gpu"]. "</td>
-              <td><a href='" . $row["link"]. "' target='_blank'>Link</a></td>
-              <td>" . $row["info"]. "</td>
-              </tr>
-              "; 
-          }
-      } else {
-          echo "0 results";
-      }
-      ?>
-
-<?php
-      if ($result2->num_rows > 0) {
-          // output data of each row
-          while($row = $result2->fetch_assoc()) {
-
-              if($row["fps"] < 30) {
-                $fps = "<span id='" . $row["fps"] . "' class='tag is-danger'>" . $row["fps"] . "</span>";
-              } else if($row["fps"] < 60) {
-                $fps = "<span id='" . $row["fps"] . "' class='tag is-warning'>" . $row["fps"] . "</span>";
-              } else if($row["fps"] < 100) {
-                $fps = "<span id='" . $row["fps"] . "' class='tag is-success'>" . $row["fps"] . "</span>";
-              } else {
-                $fps = "<span id='9" . $row["fps"] . "' class='tag is-success'>" . $row["fps"] . "</span>";
-              }
-
-              if($row["rtx-fps"] < 30) {
-                $rtx_fps = "<span id='" . $row["rtx-fps"] . "' class='tag is-danger'>" . $row["rtx-fps"] . "</span>";
-              } else if($row["rtx-fps"] < 60) {
-                $rtx_fps = "<span id='" . $row["rtx-fps"] . "' class='tag is-warning'>" . $row["rtx-fps"] . "</span>";
-              } else {
-                $rtx_fps = "<span id='" . $row["rtx-fps"] . "' class='tag is-success'>" . $row["rtx-fps"] . "</span>";
-              }
-
-
-              echo "
-              <tr>
-              <td><a href='overview.php?type=monthly&id=" . $row["id"]. "'>" . $row["name"]. "</td>
-              <td>" . $row["locations"]. "</td>
-              <td><span class='month'>" . $row["price"]. "</span></td>
-              <td>Monthly</td>
-              <td>" . $row["storage"]. "</td>
-              <td>" . $fps. "</td>
-              <td>" . $rtx_fps. "</td>
-              <td>" . $row["library"]. "</td>
-              <td>" . $row["ram"]. "</td>
-              <td>" . $row["vcores"]. "</td>
-              <td>" . $row["gpu"]. "</td>
-              <td><a href='" . $row["link"]. "' target='_blank'>Link</a></td>
-              <td>" . $row["info"]. "</td>
-              </tr>
-              
-              "; 
-          }
-      } else {
-          echo "0 results";
-      }
-      ?>
-
-
-  </tbody>
-</table>
-
-      </p>
-    </div>
-  </section>
-  <section class="section">
-    <div class="container">
-      <i class="fa fa-italic">*more storage can be added at setup</i> <br>
-      <i class="fa fa-italic">**BYOG = Bring your own Games</i> <br>
-      <i class="fa fa-italic">***GFN = Geforce Now</i>
     </div>
   </section>
 

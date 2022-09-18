@@ -21,4 +21,6 @@ if ($conn2->connect_error) {
     die("Connection failed: " . $conn2->connect_error);
 }
 
+$webhook_url = "<discord-webhook-url>";
+
 ?>

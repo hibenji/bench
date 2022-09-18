@@ -34,13 +34,13 @@ $result = $conn->query($sql);
     <meta content="/assets/controller.png" property="og:image">
     <meta content="#5a43b5" data-react-helmet="true" name="theme-color">
    
-    <title>Benchmarks of Game Streaming Providers</title>
 
 		<?php
 
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 
+				echo '<title>Benchmarks of Game Streaming Providers - '. $row["name"] . '</title>';
 				echo '<meta name="description" content="Benchmark of '. $row["name"] . '. Compare to other providers.">';
 				echo '<meta name="keywords" content="game streaming, cloud streaming, benchmarks, cloud pc, '. $row["name"] . ', benchmark '. $row["name"] . '">';
 
