@@ -10,13 +10,19 @@ ini_set('max_execution_time', 300);
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Benchmarks of Game Streaming Providers</title>
+    <meta name="description" content="Benchmarks of various Game Streaming Providers using Shadow of the Tomb Raider.">
+    <meta name="keywords" content="game streaming, cloud streaming, benchmarks, cloud pc">
+    <meta name="author" content="Benji">
+
+
     <meta content="Benchmarks" property="og:title">
     <meta content="Benchmarks and comparison of cloud game streaming providers" property="og:description">
     <meta content="https://bench.benji.link" property="og:url">
     <meta content="/assets/controller.png" property="og:image">
     <meta content="#5a43b5" data-react-helmet="true" name="theme-color">
    
-    <title>Benchmarks of Game Streaming Providers</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

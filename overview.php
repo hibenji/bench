@@ -2,6 +2,25 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 ini_set('max_execution_time', 300);
+
+// show all errors
+error_reporting(E_ALL);
+
+include('conn.php');
+
+
+$id = $_GET['id'];
+$type = $_GET['type'];
+
+if($type == "hourly") {
+	$sql = "SELECT * FROM hourly WHERE id = $id";
+} else {
+	$sql = "SELECT * FROM monthly WHERE id = $id";
+}
+
+$result = $conn->query($sql);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +35,21 @@ ini_set('max_execution_time', 300);
     <meta content="#5a43b5" data-react-helmet="true" name="theme-color">
    
     <title>Benchmarks of Game Streaming Providers</title>
+
+		<?php
+
+		if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()) {
+
+				echo '<meta name="description" content="Benchmark of '. $row["name"] . '. Compare to other providers.">';
+				echo '<meta name="keywords" content="game streaming, cloud streaming, benchmarks, cloud pc, '. $row["name"] . ', benchmark '. $row["name"] . '">';
+
+			}
+		}
+		?>
+
+    <meta name="author" content="Benji">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -39,43 +73,31 @@ ini_set('max_execution_time', 300);
   </head>
   <body>
 
-  <?php
-
-  include('conn.php');
-
-
-  $id = $_GET['id'];
-  $type = $_GET['type'];
-
-  if($type == "hourly") {
-    $sql = "SELECT * FROM hourly WHERE id = $id";
-  } else {
-    $sql = "SELECT * FROM monthly WHERE id = $id";
-  }
-
-  $result = $conn->query($sql);
-
-
-  ?>
-
   <section class="section">
     <div class="container">
       <h1 class="title">
         Benchmarks of Game Streaming Providers
       </h1>
-	  <p class="subtitle is-6">
-			<i><small>
-			This feature is still being developved, expect issues.<br>
-			Please contact me on discord if you find bugs.
-			</small></i>
-		</p>
 	  <a href="/" class="button is-primary">Back</a>
 	  <br>
 
 			<br>
 			<br>
 		<?php
-      if ($result->num_rows > 0) {
+
+
+		$id = $_GET['id'];
+		$type = $_GET['type'];
+
+		if($type == "hourly") {
+			$sql = "SELECT * FROM hourly WHERE id = $id";
+		} else {
+			$sql = "SELECT * FROM monthly WHERE id = $id";
+		}
+
+		$result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 		?>
 		Link:

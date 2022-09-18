@@ -17,6 +17,10 @@ ini_set('max_execution_time', 300);
     <meta content="#5a43b5" data-react-helmet="true" name="theme-color">
    
     <title>Benchmarks of Game Streaming Providers (Hourly)</title>
+    <meta name="description" content="Benchmarks of various Game Streaming Providers using Shadow of the Tomb Raider.">
+    <meta name="keywords" content="game streaming, cloud streaming, benchmarks, cloud pc, hourly">
+    <meta name="author" content="Benji">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
